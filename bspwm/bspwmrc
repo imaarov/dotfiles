@@ -27,6 +27,8 @@ bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 bspc config remove_disabled_monitors true
 bspc config merge_overlapping_monitors true
+setxkbmap -layout "us,ir" -option "grp:alt_shift_toggle"
+
 
 #BSPWM coloring
 bspc config normal_border_color		"#4c566a"

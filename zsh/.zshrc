@@ -15,9 +15,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -33,7 +32,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates # zstyle ':omz:update' mode auto      # update automatically without asking # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -79,7 +80,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-syntax-highlighting zsh-autosuggestions z)
 
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -108,9 +108,27 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias phpcs="phpcs -sw --standard=PSR1"
+alias wifiusers="sudo arp-scan --interface=wlp3s0 --localnet"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$PATH:/opt/nvim-linux64/bin"
+# Consolidate PATH settings
+export PATH="$HOME/.cargo/bin:$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux64/bin:/usr/local/go/bin:$HOME/go/bin"
+export GOPATH=$HOME/go
+
+# Source additional scripts
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/imaarov/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Consolidate PATH settings
+export PATH="$HOME/.cargo/bin:/usr/local/go/bin:/opt/nvim-linux64/bin:$HOME/go/bin:/usr/bin:/bin:$PATH"
+
+export PATH=$HOME/.local/bin:$PATH
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
